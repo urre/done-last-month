@@ -18,7 +18,7 @@ When you need that summary for this months invoice!
 
 ## Setup
 
-Add Trello API Key and Token in an `.env` file. See `.env-example` as an example.
+Add Trello API Key and Token in an `.env` file. See `.env-example`
 
     yarn install
 
