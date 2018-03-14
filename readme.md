@@ -2,29 +2,25 @@
 
 ### What
 
-Get a summary of Trello cards added to the _Done_ list in a specific board, for a certain month.
+Get a summary of [Trello](https://trello.com) cards added to a specific list from a specific board, for a certain month.
 
 ### Why
 
-When you need that summary for this months invoice!
+When you need a neat summary for this months invoice!
 
 ## Show me
 
-![](http://res.cloudinary.com/urre/image/upload/v1520501423/carbon_ke4mpd.png)
+![](https://res.cloudinary.com/urre/image/upload/v1521045668/carbon_ypkfm7.png)
 
 ### Example `done.txt`
 
-![](http://res.cloudinary.com/urre/image/upload/v1520501743/carbon_1_zugubc.png)
+![](https://res.cloudinary.com/urre/image/upload/v1521045670/carbon_2_ldtm8i.png)
 
 ## Setup
 
-Add your [Trello API Key](https://developers.trello.com/reference/#api-key-tokens) and token in an `.env` file. See `.env-example`
+1.  Add your [Trello API Key](https://developers.trello.com/reference/#api-key-tokens) and token in an `.env` file. See `.env-example`
 
-    yarn install
-
-or
-
-    npm i
+2.  `yarn install` or `npm i`
 
 ## Run
 

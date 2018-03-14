@@ -15,6 +15,7 @@ let amount = 0
 let trelloBoardName
 let trelloBoardId
 let trelloListId
+let trelloList
 let currentMonth
 let cards = []
 
@@ -32,17 +33,23 @@ async.series([
 					name: 'month',
 					required: true,
 					description: 'Month?'
+				},
+				{
+					name: 'list',
+					required: true,
+					description: 'List?'
 				}
 			],
 			function(err, result) {
 				trelloBoardName = result.board
 				currentMonth = result.month
+				trelloList = result.list
 				step()
 			}
 		)
 	},
 	step => {
-		t.get('/1/members/me/boards', function(err, data) {
+		t.get('/1/members/me/boards', (err, data) => {
 			if (err) throw err
 
 			for (let i of data) {
@@ -54,9 +61,9 @@ async.series([
 		})
 	},
 	step => {
-		t.get(`/1/boards/${trelloBoardId}/lists/`, function(err, data) {
+		t.get(`/1/boards/${trelloBoardId}/lists/`, (err, data) => {
 			for (let i of data) {
-				if (i.name == 'Done') {
+				if (i.name == trelloList) {
 					trelloListId = i.id
 					step()
 				}
@@ -64,7 +71,7 @@ async.series([
 		})
 	},
 	step => {
-		t.get(`/1/lists/${trelloListId}/cards`, function(err, data) {
+		t.get(`/1/lists/${trelloListId}/cards`, (err, data) => {
 			if (err) throw err
 
 			fs.truncate(f, 0, () => {})
